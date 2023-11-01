@@ -1,0 +1,58 @@
+.search {
+  text-align: center;
+}
+h1,
+h2,
+h3,
+h4 {
+  text-align: center;
+  font-family: "Shadows Into Light", cursive;
+}
+h1 {
+  padding: 20px;
+}
+
+.wind {
+  display: block;
+  color: lightblue;
+  font-size: 50px;
+}
+.windtemp {
+  font-family: "Shadows Into Light", cursive;
+  font-size: 25px;
+}
+.sun {
+  display: block;
+  color: #ffb5ac;
+  font-size: 50px;
+}
+.cloudy {
+  display: block;
+  color: #aac7d7;
+  font-size: 50px;
+}
+.mixed {
+  display: block;
+  color: #722f37;
+  font-size: 50px;
+}
+.thunder {
+  display: block;
+  color: #b4b8c5;
+  font-size: 50px;
+}
+
+body {
+  text-align: center;
+  background-color: #fdf5c6;
+}
+.row {
+  font-family: "Shadows Into Light", cursive;
+}
+button {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  border-radius: 20px;
+  background-color: #aac7d7;
+}

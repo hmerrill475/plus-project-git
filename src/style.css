@@ -20,6 +20,7 @@ h1 {
 .windtemp {
   font-family: "Shadows Into Light", cursive;
   font-size: 25px;
+  text-align: center;
 }
 .sun {
   display: block;

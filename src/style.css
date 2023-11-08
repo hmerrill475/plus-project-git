@@ -38,6 +38,13 @@ h1 {
   font-size: 25px;
   text-align: center;
 }
+.search-button {
+  background-color: #fdfcca;
+  border-radius: 6px;
+}
+.search-form-input {
+  border-radius: 6px;
+}
 body {
   text-align: center;
   background-color: #fdf5c6;

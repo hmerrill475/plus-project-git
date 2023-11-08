@@ -22,26 +22,6 @@ h1 {
   font-size: 25px;
   text-align: center;
 }
-.sun {
-  display: block;
-  color: #ffb5ac;
-  font-size: 50px;
-}
-.cloudy {
-  display: block;
-  color: #aac7d7;
-  font-size: 50px;
-}
-.mixed {
-  display: block;
-  color: #722f37;
-  font-size: 50px;
-}
-.thunder {
-  display: block;
-  color: #b4b8c5;
-  font-size: 50px;
-}
 
 body {
   text-align: center;

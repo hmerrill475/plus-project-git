@@ -1,5 +1,6 @@
 .search {
   text-align: center;
+  padding: 20px;
 }
 h1,
 h2,
@@ -27,9 +28,7 @@ body {
   text-align: center;
   background-color: #fdf5c6;
 }
-.row {
-  font-family: "Shadows Into Light", cursive;
-}
+
 button {
   display: block;
   margin: 0 auto;

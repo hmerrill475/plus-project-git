@@ -41,7 +41,10 @@ function showPosition(position) {
   let long = position.coords.longitude;
   let apiKey = "1a2b7258ebd456c01aef9175dfe8b709";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=imperial`;
-  axios.get(`${apiUrl}&appid=${apiKey}`).then(showCurrentTemp);
+  axios
+    .get(`${apiUrl}&appid=${apiKey}`)
+    .then(showCurrentTemp)
+    .then(showDescription);
 }
 
 navigator.geolocation.getCurrentPosition(showPosition);
@@ -50,16 +53,13 @@ function showCurrentTemp(response) {
   console.log(response.data);
   console.log(response.data.name);
   console.log(response.data.main.temp);
+  console.log(response.data.weather[0].description);
 
   let currentCity = response.data.name;
   let temperature = Math.round(response.data.main.temp);
   let sentance = document.querySelector("h4");
-  sentance.innerHTML = `It is ${temperature} degrees out in ${currentCity}.`;
-}
-
-function showDescription(response) {
-  console.log(response.data.condition.desciption);
-
   let descriptionElement = document.querySelector("#description");
-  descriptionElement.innerHTML = response.data.condition.desciption;
+
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  sentance.innerHTML = `It is ${temperature} degrees out in ${currentCity}.`;
 }

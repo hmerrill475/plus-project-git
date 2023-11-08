@@ -17,10 +17,15 @@ function showWeather(response) {
   console.log(response.data.wind.speed);
 
   let temperatureElement = document.querySelector("#topTemp");
+  let cityElement = document.querySelector("#city");
   let descriptionElement = document.querySelector("#description");
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
+  let iconElement = document.querySelector("#icon");
 
+ iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather.app.icon"/>;
+ 
+  cityElement.innerHTML = response.data.city;
   windElement.innerHTML = response.data.wind.speed;
   humidityElement.innerHTML = response.data.temperature.humidity;
   descriptionElement.innerHTML = response.data.condition.description;

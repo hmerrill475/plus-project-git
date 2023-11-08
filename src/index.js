@@ -29,22 +29,13 @@ function handleSearch(event) {
   event.preventDefault();
 
   let input = document.querySelector("#search-button");
-  let apiKey = "1a5cc3cf3a952ac714d1e93f46d066a6";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${input.value}&units=imperial`;
+}
+function searchCity(city) {
+  let apiKey = "f4cc721a34562ff0ba46b8a5811ca6to";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial};
+`;
   axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemperature);
 }
-
-function showPosition(position) {
-  console.log(position.coords.latitude);
-  console.log(position.coords.longitude);
-  let lat = position.coords.latitude;
-  let long = position.coords.longitude;
-  let apiKey = "1a2b7258ebd456c01aef9175dfe8b709";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=imperial`;
-  axios.get(`${apiUrl}&appid=${apiKey}`).then(showCurrentTemp);
-}
-
-navigator.geolocation.getCurrentPosition(showPosition);
 
 function showCurrentTemp(response) {
   console.log(response.data);
@@ -64,5 +55,4 @@ function showCurrentTemp(response) {
   windElement.innerHTML = response.data.wind.speed;
   humidityElement.innerHTML = response.data.main.humidity;
   descriptionElement.innerHTML = response.data.weather[0].description;
-  sentance.innerHTML = `It is ${temperature} degrees out in ${currentCity}.`;
 }

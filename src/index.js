@@ -50,8 +50,16 @@ function showCurrentTemp(response) {
   console.log(response.data);
   console.log(response.data.name);
   console.log(response.data.main.temp);
+
   let currentCity = response.data.name;
   let temperature = Math.round(response.data.main.temp);
   let sentance = document.querySelector("h4");
   sentance.innerHTML = `It is ${temperature} degrees out in ${currentCity}.`;
+}
+
+function showDescription(response) {
+  console.log(response.data.condition.desciption);
+
+  let descriptionElement = document.querySelector("#description");
+  descriptionElement.innerHTML = response.data.condition.desciption;
 }

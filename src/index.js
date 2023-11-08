@@ -9,12 +9,12 @@ let h2 = document.querySelector("h2");
 h2.innerHTML = `${day} ${hours}:${minutes}`;
 
 function showWeather(response) {
-  console.log(response.data);
-  console.log(response.data.name);
-  console.log(response.data.main.temp);
-  console.log(response.data.condition.description);
-  console.log(response.data.temperature.humidity);
-  console.log(response.data.wind.speed);
+  // console.log(response.data);
+  // console.log(response.data.name);
+  // console.log(response.data.main.temp);
+  // console.log(response.data.condition.description);
+  // console.log(response.data.temperature.humidity);
+  // console.log(response.data.wind.speed);
 
   let temperatureElement = document.querySelector("#topTemp");
   let cityElement = document.querySelector("#city");
@@ -29,7 +29,7 @@ function showWeather(response) {
   windElement.innerHTML = response.data.wind.speed;
   humidityElement.innerHTML = response.data.temperature.humidity;
   descriptionElement.innerHTML = response.data.condition.description;
-  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  temperatureElement.innerHTML = Math.round(response.data.temperature.current);
 }
 
 function searchCity(city) {
@@ -44,6 +44,7 @@ function handleSearch(event) {
   let h1 = document.querySelector("#city");
 
   h1.innerHTML = `${input.value}`;
+  searchCity(input.value);
 }
 
 let form = document.querySelector("#search-form");

@@ -22,6 +22,8 @@ function showWeather(response) {
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
   let iconElement = document.querySelector("#icon");
+  let celsiusTemperature = response.data.temperature.current;
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
 
   iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather.app.icon"/>`;
 
@@ -29,12 +31,12 @@ function showWeather(response) {
   windElement.innerHTML = response.data.wind.speed;
   humidityElement.innerHTML = response.data.temperature.humidity;
   descriptionElement.innerHTML = response.data.condition.description;
-  temperatureElement.innerHTML = Math.round(response.data.temperature.current);
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
 
 function searchCity(city) {
   let apiKey = "f4cc721a34562ff0ba46b8a5811ca6to";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial}`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
   axios.get(apiUrl).then(showWeather);
 }
 

@@ -9,7 +9,7 @@ let h2 = document.querySelector("h2");
 h2.innerHTML = `${day} ${hours}:${minutes}`;
 
 function showWeather(response) {
-  // console.log(response.data);
+  console.log(response.data);
   // console.log(response.data.name);
   // console.log(response.data.main.temp);
   // console.log(response.data.condition.description);
@@ -40,7 +40,7 @@ function searchCity(city) {
 
 function handleSearch(event) {
   event.preventDefault();
-  let input = document.querySelector("#search-button");
+  let input = document.querySelector("#search-form-input");
   let h1 = document.querySelector("#city");
 
   h1.innerHTML = `${input.value}`;

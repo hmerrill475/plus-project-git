@@ -32,6 +32,7 @@ function showWeather(response) {
   humidityElement.innerHTML = response.data.temperature.humidity;
   descriptionElement.innerHTML = response.data.condition.description;
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+  getForecast(response.data.city);
 }
 
 function searchCity(city) {
@@ -49,10 +50,18 @@ function handleSearch(event) {
   searchCity(input.value);
 }
 
+function getForecast(city) {
+  let apiKey = "f4cc721a34562ff0ba46b8a5811ca6to";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
+  axios.get(apiUrl).then(displayForecast);
+}
+function displayForecast(response) {
+  console.log(response.data);
+}
 function displayForecast() {
   let forecastElement = document.querySelector("#forecast");
 
-  let days = [`Tues`, `wed`, `thurs`, `fri`, `sat`];
+ response.data.daily.forEarch(function(day)){
   let forecastHtml = "";
 
   days.forEach(function (day) {
@@ -64,12 +73,12 @@ function displayForecast() {
           
           <div class="forecast-icon"> <img src="https://static.vecteezy.com/system/resources/previews/009/213/913/non_2x/cloud-with-sun-emoji-icon-cloudy-sunny-day-weather-symbol-illustration-vector.jpg" alt="" width="100px">
 </div>
-          <span class="forecast-high">high temp</span> <span class="forecast-low">low temp</span>       
+          <span class="forecast-high"> ${Math.round(day.temperature.maximum)}°</span> <span class="forecast-low">${Math.round(day.temperature.minimum)}°</span>       
         </div>
       `;
   });
   forecastElement.innerHTML = forecastHtml;
-}
+}}
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSearch);
 displayForecast();

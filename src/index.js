@@ -50,35 +50,42 @@ function handleSearch(event) {
   searchCity(input.value);
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = [`Sun`, `Mon`, `Tues`, `Wed`, `Thur`, `Fri`, `Sat`];
+  return days[date.getDay()];
+}
+
 function getForecast(city) {
   let apiKey = "f4cc721a34562ff0ba46b8a5811ca6to";
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayForecast);
 }
 function displayForecast(response) {
-  console.log(response.data);
-}
-function displayForecast() {
-  let forecastElement = document.querySelector("#forecast");
-
- response.data.daily.forEarch(function(day)){
   let forecastHtml = "";
-
-  days.forEach(function (day) {
-    forecastHtml =
-      forecastHtml +
-      `
+  response.data.daily.forEach(function (day, index) {
+    if (index < 5) {
+      forecastHtml =
+        forecastHtml +
+        `
       <div class="weather-forecast-day"> 
-          <div class="forecast-date">${day}</div>
+          <div class="forecast-date">${formateDay(day.time)}</div>
           
-          <div class="forecast-icon"> <img src="https://static.vecteezy.com/system/resources/previews/009/213/913/non_2x/cloud-with-sun-emoji-icon-cloudy-sunny-day-weather-symbol-illustration-vector.jpg" alt="" width="100px">
-</div>
-          <span class="forecast-high"> ${Math.round(day.temperature.maximum)}°</span> <span class="forecast-low">${Math.round(day.temperature.minimum)}°</span>       
+          <img src="${day.condition.icon_url}" class="forecast-icon">/>
+          <span class="forecast-high"> ${Math.round(
+            day.temperature.maximum
+          )}°</span>
+           <span class="forecast-low">${Math.round(
+             day.temperature.minimum
+           )}°</span>       
         </div>
       `;
+    }
   });
+  let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = forecastHtml;
-}}
+}
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSearch);
-displayForecast();
+
+searchCity();

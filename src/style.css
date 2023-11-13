@@ -47,7 +47,7 @@ h1 {
 }
 body {
   text-align: center;
-  background-color: ##f8e0b1;
+  background-color: #f8e0b1;
 }
 
 button {
@@ -91,4 +91,5 @@ footer {
 }
 .forecast-icon {
   text-align: center;
+  width: 24px;
 }

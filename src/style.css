@@ -77,13 +77,13 @@ footer {
 }
 
 .forecast-high {
-  font-size: 14px;
+  font-size: 16px;
   display: flex;
   justify-content: center;
   text-align: center;
 }
 .forecast-low {
-  font-size: 14px;
+  font-size: 16px;
   opacity: 0.5;
   text-align: center;
   display: flex;

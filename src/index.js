@@ -59,13 +59,13 @@ function displayForecast() {
     forecastHtml =
       forecastHtml +
       `
-      
+      <div class="weather-forecast-day"> 
           <div class="forecast-date">${day}</div>
           
           <div class="forecast-icon"> <img src="https://static.vecteezy.com/system/resources/previews/009/213/913/non_2x/cloud-with-sun-emoji-icon-cloudy-sunny-day-weather-symbol-illustration-vector.jpg" alt="" width="100px">
 </div>
           <span class="forecast-high">high temp</span> <span class="forecast-low">low temp</span>       
-        
+        </div>
       `;
   });
   forecastElement.innerHTML = forecastHtml;

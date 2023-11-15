@@ -87,6 +87,4 @@ function displayForecast(response) {
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSearch);
 
-searchCity();
-displayForecast();
-getForecast();
+searchCity("paris");

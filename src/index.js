@@ -32,6 +32,8 @@ function showWeather(response) {
   humidityElement.innerHTML = response.data.temperature.humidity;
   descriptionElement.innerHTML = response.data.condition.description;
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+
+  getForecast(response.data.city);
 }
 
 function searchCity(city) {
